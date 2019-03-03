@@ -30,7 +30,7 @@ private String emailAdmin;
 private String passwordAdmin;
 @Lob
 private byte[] avatarAdmin;
-
+private String ajel;
 
 
 }
