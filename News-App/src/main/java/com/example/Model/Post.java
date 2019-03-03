@@ -26,6 +26,7 @@ public class Post {
 	private Categorie categoriePost;
 	@OneToMany
 	private List<Like> listLike;
+	@OneToMany
 	private List<Comment> listComment;
 	
 	
