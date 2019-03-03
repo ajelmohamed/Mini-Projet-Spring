@@ -30,8 +30,6 @@ private String emailAdmin;
 private String passwordAdmin;
 @Lob
 private byte[] avatarAdmin;
-@ManyToMany()
-private List<Post>posts;
 
 
 

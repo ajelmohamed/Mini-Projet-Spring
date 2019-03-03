@@ -25,7 +25,6 @@ public class User {
 	private String passwordUser;
 	@Lob
 	private byte[] avatarUser;
-	@ManyToMany()
-	private List<Post>posts;
+	
 
 }
