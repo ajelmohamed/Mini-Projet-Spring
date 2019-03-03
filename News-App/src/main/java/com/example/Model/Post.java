@@ -2,14 +2,12 @@ package com.example.Model;
 
 import java.util.List;
 
+import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import org.springframework.data.annotation.Id;
-
 public class Post {
-
 	@Id
 	private Long idPost;
 	private String TitlePost;
@@ -24,8 +22,6 @@ public class Post {
 	private Admin admin;
 	@OneToMany
 	private List<Like> listLike;
+	@OneToMany
 	private List<Comment> listComment;
-	
-	
-	
 }
