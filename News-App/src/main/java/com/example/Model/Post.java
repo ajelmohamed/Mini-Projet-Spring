@@ -12,7 +12,7 @@ public class Post {
 
 	@Id
 	private Long idPost;
-	private String TitlePost;
+	private String titlePost;
 	private String contenuePost;
 	private String datePost;
 	@Lob
@@ -22,6 +22,8 @@ public class Post {
 	
 	@ManyToOne
 	private Admin admin;
+	@ManyToOne
+	private Categorie categoriePost;
 	@OneToMany
 	private List<Like> listLike;
 	private List<Comment> listComment;
