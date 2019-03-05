@@ -1,9 +1,7 @@
 package com.example.Model;
 
-import java.util.List;
 
 import javax.persistence.Lob;
-import javax.persistence.ManyToMany;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
@@ -15,7 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Document(indexName="appnews",type="user",shards=2)
+@Document(indexName="user",type="user",shards=2)
 public class User {
 	@Id
 	private Long idUser;

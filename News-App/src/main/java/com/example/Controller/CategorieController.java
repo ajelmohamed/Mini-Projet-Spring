@@ -17,7 +17,6 @@ import com.example.Model.Categorie;
 import com.example.Service.CategorieService;
 
 
-@Service(value="com.example.Service")
 @RestController
 public class CategorieController {
 	@Autowired 

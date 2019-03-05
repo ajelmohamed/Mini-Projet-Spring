@@ -2,10 +2,12 @@ package com.example.Model;
 
 import java.util.List;
 
-import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import org.springframework.data.annotation.Id;
+
 
 import org.springframework.data.elasticsearch.annotations.Document;
 
@@ -15,10 +17,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Document(indexName="appnews",type="post",shards=2)
+@Document(indexName="post",type="post",shards=2)
 public class Post {
+	
 	@Id
 	private Long idPost;
+	
 	private String titlePost;
 	private String contenuePost;
 	private String datePost;

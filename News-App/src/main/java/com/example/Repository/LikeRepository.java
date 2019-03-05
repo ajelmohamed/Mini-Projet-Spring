@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.example.Model.Like;
 
 @Repository
-public interface LikeRepository  extends ElasticsearchRepository<Like, Long>{
+public interface LikeRepository extends ElasticsearchRepository<Like, Long> {
 
 }

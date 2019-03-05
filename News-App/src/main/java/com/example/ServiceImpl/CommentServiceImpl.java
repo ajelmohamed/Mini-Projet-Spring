@@ -8,13 +8,16 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.elasticsearch.core.query.SearchQuery;
+import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
+import org.springframework.stereotype.Service;
 
 import com.example.Model.Comment;
 import com.example.Model.Comment;
 import com.example.Repository.CommentRepository;
 import com.example.Service.AdminService;
 import com.example.Service.CommentService;
-
+@EnableElasticsearchRepositories("com.example.Repository")
+@Service
 public class CommentServiceImpl implements CommentService {
 	@Autowired
 	CommentRepository commentRepository;

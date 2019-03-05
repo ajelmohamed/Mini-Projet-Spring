@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.Model.User;
 import com.example.Service.UserService;
 
-@Service(value="com.example.Service")
 @RestController
 public class UserController {
 	@Autowired 

@@ -8,12 +8,15 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.elasticsearch.core.query.SearchQuery;
+import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
+import org.springframework.stereotype.Service;
 
 import com.example.Model.User;
 import com.example.Repository.UserRepository;
 import com.example.Service.UserService;
 import com.example.Service.UserService;
-
+@EnableElasticsearchRepositories("com.example.Repository")
+@Service
 public class UserServiceImpl implements UserService {
 
 	@Autowired

@@ -8,10 +8,11 @@ import org.springframework.data.elasticsearch.annotations.Document;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Document(indexName="appnews",type="like",shards=2)
+@Document(indexName="like",type="like",shards=2)
 public class Like {
 
 	@Id

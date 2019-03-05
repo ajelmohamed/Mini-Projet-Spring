@@ -7,9 +7,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.elasticsearch.core.query.SearchQuery;
+import org.springframework.stereotype.Service;
 
 import com.example.Model.Categorie;
-
+@Service
 public interface CategorieService {
 	
 	public <S extends Categorie> S index(S entity) ;

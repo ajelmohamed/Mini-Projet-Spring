@@ -1,6 +1,5 @@
 package com.example.Model;
 
-import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
 import org.springframework.data.annotation.Id;
@@ -12,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Document(indexName="appnews",type="comment",shards=2)
+@Document(indexName="comment",type="comment",shards=2)
 public class Comment {
 
 	@Id

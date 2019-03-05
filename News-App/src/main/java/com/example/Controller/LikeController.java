@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.Model.Like;
 import com.example.Service.LikeService;
 
-@Service(value="com.example.Service")
 @RestController
 public class LikeController {
 	@Autowired 
