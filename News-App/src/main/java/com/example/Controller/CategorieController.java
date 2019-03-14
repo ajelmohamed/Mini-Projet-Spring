@@ -17,7 +17,7 @@ import com.example.Model.Categorie;
 import com.example.Service.CategorieService;
 
 
-@RestController
+@RestController(value="/categories")
 public class CategorieController {
 	@Autowired 
 	 CategorieService categorieService;

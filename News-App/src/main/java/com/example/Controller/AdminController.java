@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.Model.Admin;
 import com.example.Service.AdminService;
 
-@RestController
+@RestController(value="/admins")
 public class AdminController {
  @Autowired 
  AdminService adminService;

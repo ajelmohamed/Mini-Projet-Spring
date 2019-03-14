@@ -5,9 +5,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
 
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
 @ComponentScan({ "com.example.Controller","com.example.Service","com.example.ServiceImpl" })
 @EnableElasticsearchRepositories(basePackages= "com.example.Repository")
 @SpringBootApplication(scanBasePackages= {"com.example.Controller","com.example.Service","com.example.ServiceImpl"})
+@EnableSwagger2
 public class NewsAppApplication {
 
 	public static void main(String[] args) {
