@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.Model.User;
@@ -24,7 +25,13 @@ public class UserController {
 	@Autowired 
 	 UserService userService;
 	
-
+	 @PostMapping("/login")
+	 public ResponseEntity<User>  login(@RequestParam String email,@RequestParam String password)
+	 {
+		 return userService.loginUser(email,password);
+	 }
+	 
+	 
 	 @PostMapping("/saveUser")
 	 public void  saveUser(@RequestBody User user)
 	 {

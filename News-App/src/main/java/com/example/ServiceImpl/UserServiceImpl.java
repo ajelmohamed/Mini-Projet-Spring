@@ -9,6 +9,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.elasticsearch.core.query.SearchQuery;
 import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.Model.User;
@@ -122,6 +124,16 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void deleteAll() {
       		userRepository.deleteAll();
+	}
+
+	@Override
+	 public ResponseEntity<User> loginUser(String email,String password) {
+		User user=userRepository.findByEmailUserAndPasswordUser(email,password);
+		if(user == null) {
+			return new ResponseEntity<User>(HttpStatus.NOT_FOUND);	
+			}
+		
+        return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
 
 }

@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.elasticsearch.core.query.SearchQuery;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.Model.User;
@@ -68,6 +69,8 @@ public <S extends User> S index(S entity) ;
 
 	
 	public void deleteAll() ;
+	
+	public ResponseEntity<User> loginUser(String email,String password);
 
 
 }

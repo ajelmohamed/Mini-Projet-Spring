@@ -9,6 +9,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @ComponentScan({ "com.example.Controller","com.example.Service","com.example.ServiceImpl" })
 @EnableElasticsearchRepositories(basePackages= "com.example.Repository")
+
 @SpringBootApplication(scanBasePackages= {"com.example.Controller","com.example.Service","com.example.ServiceImpl"})
 @EnableSwagger2
 public class NewsAppApplication {

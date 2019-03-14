@@ -8,4 +8,7 @@ import com.example.Model.User;
 @Repository
 public interface UserRepository extends ElasticsearchRepository<User, Long>{
 
+
+	User findByEmailUserAndPasswordUser(String email,String password);
+
 }
