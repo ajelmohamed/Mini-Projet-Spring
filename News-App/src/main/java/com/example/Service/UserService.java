@@ -43,24 +43,25 @@ public <S extends User> S index(S entity) ;
 
 	
 	public <S extends User> S save(S entity) ;
+	public ResponseEntity<User> registerUser(User user) ;
 
 	
 	public <S extends User> Iterable<S> saveAll(Iterable<S> entities);
 
 	
-	public Optional<User> findById(Long id);
+	public Optional<User> findById(String id);
 
-	public boolean existsById(Long id) ;
+	public boolean existsById(String id) ;
 
 	
 	public Iterable<User> findAll() ;
 
 	
-	public Iterable<User> findAllById(Iterable<Long> ids);
+	public Iterable<User> findAllById(Iterable<String> ids);
 
 	public long count() ;
 
-	public void deleteById(Long id) ;
+	public void deleteById(String id) ;
 
 
 	public void delete(User entity) ;

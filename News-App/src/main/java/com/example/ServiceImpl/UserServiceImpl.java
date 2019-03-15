@@ -81,12 +81,12 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public Optional<User> findById(Long id) {
+	public Optional<User> findById(String id) {
 		return userRepository.findById(id);
 	}
 
 	@Override
-	public boolean existsById(Long id) {
+	public boolean existsById(String id) {
 		return userRepository.existsById(id);
 	}
 
@@ -96,7 +96,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public Iterable<User> findAllById(Iterable<Long> ids) {
+	public Iterable<User> findAllById(Iterable<String> ids) {
 		return userRepository.findAllById(ids);
 	}
 
@@ -106,7 +106,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void deleteById(Long id) {
+	public void deleteById(String id) {
          userRepository.deleteById(id);		
 	}
 
@@ -133,6 +133,17 @@ public class UserServiceImpl implements UserService {
 			return new ResponseEntity<User>(HttpStatus.NOT_FOUND);	
 			}
 		
+        return new ResponseEntity<User>(user, HttpStatus.OK);
+	}
+
+	@Override
+	public ResponseEntity<User> registerUser(User user) {
+		User user1=userRepository.findByEmailUser(user.getEmailUser());
+		if(user1 != null) {
+		    System.out.println(user1.getEmailUser());
+			return new ResponseEntity<User>(HttpStatus.NOT_FOUND);	
+			}
+		this.save(user);
         return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
 

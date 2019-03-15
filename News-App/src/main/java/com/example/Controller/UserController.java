@@ -12,34 +12,37 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.Model.User;
 import com.example.Service.UserService;
 
-@RestController(value="/users")
+@RestController()
 @CrossOrigin(origins = "http://localhost:4200")
 
 public class UserController {
 	@Autowired 
 	 UserService userService;
 	
-	 @PostMapping("/login")
-	 public ResponseEntity<User>  login(@RequestParam String email,@RequestParam String password)
-	 {
+	 @RequestMapping(value = "/loginUser", method = RequestMethod.POST)
+	 public ResponseEntity<User>  login(@RequestParam(required=false,name="email") String email,@RequestParam(required=false,name="password") String password)
+	 {   		
+
 		 return userService.loginUser(email,password);
 	 }
 	 
 	 
-	 @PostMapping("/saveUser")
-	 public void  saveUser(@RequestBody User user)
+	 @RequestMapping(value = "/registerUser", method = RequestMethod.POST)
+	 public ResponseEntity<User>  registerUser(@RequestBody User user)
 	 {
-		 userService.save(user);
+		return userService.registerUser(user);
 	 }
 	 
 	 @GetMapping("/findUser/{id}")
-	 public Optional<User> findUser(@PathVariable("id") Long id)
+	 public Optional<User> findUser(@PathVariable("id") String id)
 	 {
 		 return userService.findById(id);
 	 }
@@ -51,7 +54,7 @@ public class UserController {
 		 return userService.findAll();
 	 }
 	 @PutMapping("/updateUser/{id}")
-	 public  ResponseEntity<Object> updateUser(@RequestBody User user ,@PathVariable("id") Long id)
+	 public  ResponseEntity<Object> updateUser(@RequestBody User user ,@PathVariable("id") String id)
 	 {
 			Optional<User> userOptional=userService.findById(id);
 			if (!userOptional.isPresent())
@@ -62,7 +65,7 @@ public class UserController {
 
 	 }
 	 @DeleteMapping("/deleteUser/{id}")
-	 public void deleteUser(@PathVariable("id") Long id)
+	 public void deleteUser(@PathVariable("id") String id)
 	 {
 		 userService.deleteById(id);
 	 }

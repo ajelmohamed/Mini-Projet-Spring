@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @Document(indexName="user",type="user",shards=2)
 public class User {
 	@Id
-	private Long idUser;
+	private String idUser;
 	private String nomUser;
 	private String prenomUser;
 	private String emailUser;

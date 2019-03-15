@@ -6,9 +6,11 @@ import org.springframework.stereotype.Repository;
 import com.example.Model.User;
 
 @Repository
-public interface UserRepository extends ElasticsearchRepository<User, Long>{
+public interface UserRepository extends ElasticsearchRepository<User, String>{
 
 
 	User findByEmailUserAndPasswordUser(String email,String password);
+
+	User findByEmailUser(String emailUser);
 
 }
