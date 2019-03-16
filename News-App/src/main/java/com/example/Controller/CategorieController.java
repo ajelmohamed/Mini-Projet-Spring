@@ -17,9 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.Model.Categorie;
 import com.example.Service.CategorieService;
 
-@CrossOrigin(origins = "http://localhost:4200")
 
-@RestController(value="/categories")
+
+@RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class CategorieController {
 	@Autowired 
 	 CategorieService categorieService;

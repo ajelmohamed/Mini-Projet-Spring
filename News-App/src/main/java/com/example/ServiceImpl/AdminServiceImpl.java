@@ -9,9 +9,12 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.elasticsearch.core.query.SearchQuery;
 import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.Model.Admin;
+import com.example.Model.User;
 import com.example.Repository.AdminRepository;
 import com.example.Service.AdminService;
 @EnableElasticsearchRepositories("com.example.Repository")
@@ -121,6 +124,26 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public void deleteAll() {
       		adminRepository.deleteAll();
+	}
+	@Override
+	 public ResponseEntity<Admin> loginAdmin(String email,String password) {
+		Admin admin=adminRepository.findByEmailAdminAndPasswordAdmin(email,password);
+		if(admin == null) {
+			return new ResponseEntity<Admin>(HttpStatus.NOT_FOUND);	
+			}
+		
+       return new ResponseEntity<Admin>(admin, HttpStatus.OK);
+	}
+
+	@Override
+	public ResponseEntity<Admin> registerAdmin(Admin admin) {
+		Admin admin1=adminRepository.findByEmailAdmin(admin.getEmailAdmin());
+		if(admin1 != null) {
+		    System.out.println(admin1.getEmailAdmin());
+			return new ResponseEntity<Admin>(HttpStatus.NOT_FOUND);	
+			}
+		this.save(admin);
+       return new ResponseEntity<Admin>(admin, HttpStatus.OK);
 	}
 
 }

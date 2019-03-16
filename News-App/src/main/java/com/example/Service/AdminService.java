@@ -7,9 +7,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.elasticsearch.core.query.SearchQuery;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.Model.Admin;
+import com.example.Model.User;
 @Service
 public interface AdminService  {
 
@@ -69,5 +71,6 @@ public interface AdminService  {
 
 	
 	public void deleteAll() ;
-
+	public ResponseEntity<Admin> registerAdmin(Admin admin) ;
+	public ResponseEntity<Admin> loginAdmin(String email,String password);
 }
