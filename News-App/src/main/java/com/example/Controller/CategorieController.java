@@ -31,7 +31,7 @@ public class CategorieController {
 	 }
 	 
 	 @GetMapping("/findCategorie/{id}")
-	 public Optional<Categorie> findCategorie(@PathVariable("id") Long id)
+	 public Optional<Categorie> findCategorie(@PathVariable("id") String id)
 	 {
 		 return categorieService.findById(id);
 	 }
@@ -43,7 +43,7 @@ public class CategorieController {
 		 return categorieService.findAll();
 	 }
 	 @PutMapping("/updateCategorie/{id}")
-	 public  ResponseEntity<Object> updateCategorie(@RequestBody Categorie categorie ,@PathVariable("id") Long id)
+	 public  ResponseEntity<Object> updateCategorie(@RequestBody Categorie categorie ,@PathVariable("id") String id)
 	 {
 			Optional<Categorie> categorieOptional=categorieService.findById(id);
 			if (!categorieOptional.isPresent())
@@ -54,7 +54,7 @@ public class CategorieController {
 
 	 }
 	 @DeleteMapping("/deleteCategorie/{id}")
-	 public void deleteCategorie(@PathVariable("id") Long id)
+	 public void deleteCategorie(@PathVariable("id") String id)
 	 {
 		 categorieService.deleteById(id);
 	 }

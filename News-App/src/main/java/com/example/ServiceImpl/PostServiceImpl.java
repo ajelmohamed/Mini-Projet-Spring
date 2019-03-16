@@ -79,12 +79,12 @@ public class PostServiceImpl implements PostService {
 	}
 
 	@Override
-	public Optional<Post> findById(Long id) {
+	public Optional<Post> findById(String id) {
 		return postRepository.findById(id);
 	}
 
 	@Override
-	public boolean existsById(Long id) {
+	public boolean existsById(String id) {
 		return postRepository.existsById(id);
 	}
 
@@ -94,7 +94,7 @@ public class PostServiceImpl implements PostService {
 	}
 
 	@Override
-	public Iterable<Post> findAllById(Iterable<Long> ids) {
+	public Iterable<Post> findAllById(Iterable<String> ids) {
 		return postRepository.findAllById(ids);
 	}
 
@@ -104,7 +104,7 @@ public class PostServiceImpl implements PostService {
 	}
 
 	@Override
-	public void deleteById(Long id) {
+	public void deleteById(String id) {
          postRepository.deleteById(id);		
 	}
 

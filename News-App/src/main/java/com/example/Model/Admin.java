@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 public class Admin {
 	
 @Id
-private Long idAdmin;
+private String idAdmin;
 private String nomAdmin;
 private String prenomAdmin;
 private String emailAdmin;

@@ -79,12 +79,12 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	@Override
-	public Optional<Comment> findById(Long id) {
+	public Optional<Comment> findById(String id) {
 		return commentRepository.findById(id);
 	}
 
 	@Override
-	public boolean existsById(Long id) {
+	public boolean existsById(String id) {
 		return commentRepository.existsById(id);
 	}
 
@@ -94,7 +94,7 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	@Override
-	public Iterable<Comment> findAllById(Iterable<Long> ids) {
+	public Iterable<Comment> findAllById(Iterable<String> ids) {
 		return commentRepository.findAllById(ids);
 	}
 
@@ -104,7 +104,7 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	@Override
-	public void deleteById(Long id) {
+	public void deleteById(String id) {
          commentRepository.deleteById(id);		
 	}
 

@@ -28,7 +28,7 @@ public class PostController {
 	 }
 	 
 	 @GetMapping("/findPost/{id}")
-	 public Optional<Post> findPost(@PathVariable("id") Long id)
+	 public Optional<Post> findPost(@PathVariable("id") String id)
 	 {
 		 return postService.findById(id);
 	 }
@@ -40,7 +40,7 @@ public class PostController {
 		 return postService.findAll();
 	 }
 	 @PutMapping("/updatePost/{id}")
-	 public  ResponseEntity<Object> updatePost(@RequestBody Post post ,@PathVariable("id") Long id)
+	 public  ResponseEntity<Object> updatePost(@RequestBody Post post ,@PathVariable("id") String id)
 	 {
 			Optional<Post> postOptional=postService.findById(id);
 			if (!postOptional.isPresent())
@@ -51,7 +51,7 @@ public class PostController {
 
 	 }
 	 @DeleteMapping("/deletePost/{id}")
-	 public void deletePost(@PathVariable("id") Long id)
+	 public void deletePost(@PathVariable("id") String id)
 	 {
 		 postService.deleteById(id);
 	 }

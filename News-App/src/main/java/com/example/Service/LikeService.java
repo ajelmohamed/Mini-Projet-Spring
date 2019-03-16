@@ -47,19 +47,19 @@ public <S extends Like> S index(S entity) ;
 	public <S extends Like> Iterable<S> saveAll(Iterable<S> entities);
 
 	
-	public Optional<Like> findById(Long id);
+	public Optional<Like> findById(String id);
 
-	public boolean existsById(Long id) ;
+	public boolean existsById(String id) ;
 
 	
 	public Iterable<Like> findAll() ;
 
 	
-	public Iterable<Like> findAllById(Iterable<Long> ids);
+	public Iterable<Like> findAllById(Iterable<String> ids);
 
 	public long count() ;
 
-	public void deleteById(Long id) ;
+	public void deleteById(String id) ;
 
 
 	public void delete(Like entity) ;

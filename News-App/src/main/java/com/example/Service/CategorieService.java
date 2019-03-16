@@ -47,19 +47,19 @@ public interface CategorieService {
 	public <S extends Categorie> Iterable<S> saveAll(Iterable<S> entities);
 
 	
-	public Optional<Categorie> findById(Long id);
+	public Optional<Categorie> findById(String id);
 
-	public boolean existsById(Long id) ;
+	public boolean existsById(String id) ;
 
 	
 	public Iterable<Categorie> findAll() ;
 
 	
-	public Iterable<Categorie> findAllById(Iterable<Long> ids);
+	public Iterable<Categorie> findAllById(Iterable<String> ids);
 
 	public long count() ;
 
-	public void deleteById(Long id) ;
+	public void deleteById(String id) ;
 
 
 	public void delete(Categorie entity) ;

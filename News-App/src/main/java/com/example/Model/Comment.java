@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class Comment {
 
 	@Id
-	private Long idComment;
+	private String idComment;
 	private String ContenuComment;
 	@ManyToOne
 	private User user;

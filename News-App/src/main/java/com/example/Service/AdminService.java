@@ -48,19 +48,19 @@ public interface AdminService  {
 	public <S extends Admin> Iterable<S> saveAll(Iterable<S> entities);
 
 	
-	public Optional<Admin> findById(Long id);
+	public Optional<Admin> findById(String id);
 
-	public boolean existsById(Long id) ;
+	public boolean existsById(String id) ;
 
 	
 	public Iterable<Admin> findAll() ;
 
 	
-	public Iterable<Admin> findAllById(Iterable<Long> ids);
+	public Iterable<Admin> findAllById(Iterable<String> ids);
 
 	public long count() ;
 
-	public void deleteById(Long id) ;
+	public void deleteById(String id) ;
 
 
 	public void delete(Admin entity) ;

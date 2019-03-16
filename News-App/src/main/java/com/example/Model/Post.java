@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 public class Post {
 	
 	@Id
-	private Long idPost;
+	private String idPost;
 	
 	private String titlePost;
 	private String contenuePost;

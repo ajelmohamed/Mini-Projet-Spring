@@ -27,7 +27,7 @@ public class AdminController {
  }
  
  @GetMapping("/findAdmin/{id}")
- public Optional<Admin> findAdmin(@PathVariable("id") Long id)
+ public Optional<Admin> findAdmin(@PathVariable("id") String id)
  {
 	 return adminService.findById(id);
  }
@@ -39,7 +39,7 @@ public class AdminController {
 	 return adminService.findAll();
  }
  @PutMapping("/updateAdmin/{id}")
- public  ResponseEntity<Object> updateAdmin(@RequestBody Admin admin ,@PathVariable("id") Long id)
+ public  ResponseEntity<Object> updateAdmin(@RequestBody Admin admin ,@PathVariable("id") String id)
  {
 		Optional<Admin> adminOptional=adminService.findById(id);
 		if (!adminOptional.isPresent())
@@ -50,7 +50,7 @@ public class AdminController {
 
  }
  @DeleteMapping("/deleteAdmin/{id}")
- public void deleteAdmin(@PathVariable("id") Long id)
+ public void deleteAdmin(@PathVariable("id") String id)
  {
 	 adminService.deleteById(id);
  }

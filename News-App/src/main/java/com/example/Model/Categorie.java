@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Document(indexName="categorie",type="categorie",shards=2)
 public class Categorie {
 	@Id
-	private Long idCategorie;
+	private String idCategorie;
 	private String titleCategorie;
 	private String descriptionCategorie;
 	

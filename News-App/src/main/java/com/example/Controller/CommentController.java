@@ -27,7 +27,7 @@ public class CommentController {
 	 }
 	 
 	 @GetMapping("/findComment/{id}")
-	 public Optional<Comment> findComment(@PathVariable("id") Long id)
+	 public Optional<Comment> findComment(@PathVariable("id") String id)
 	 {
 		 return commentService.findById(id);
 	 }
@@ -39,7 +39,7 @@ public class CommentController {
 		 return commentService.findAll();
 	 }
 	 @PutMapping("/updateComment/{id}")
-	 public  ResponseEntity<Object> updateComment(@RequestBody Comment comment ,@PathVariable("id") Long id)
+	 public  ResponseEntity<Object> updateComment(@RequestBody Comment comment ,@PathVariable("id") String id)
 	 {
 			Optional<Comment> commentOptional=commentService.findById(id);
 			if (!commentOptional.isPresent())
@@ -50,7 +50,7 @@ public class CommentController {
 
 	 }
 	 @DeleteMapping("/deleteComment/{id}")
-	 public void deleteComment(@PathVariable("id") Long id)
+	 public void deleteComment(@PathVariable("id") String id)
 	 {
 		 commentService.deleteById(id);
 	 }

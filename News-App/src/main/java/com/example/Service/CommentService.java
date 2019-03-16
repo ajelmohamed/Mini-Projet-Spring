@@ -49,19 +49,19 @@ public interface CommentService  {
 	public <S extends Comment> Iterable<S> saveAll(Iterable<S> entities);
 
 	
-	public Optional<Comment> findById(Long id);
+	public Optional<Comment> findById(String id);
 
-	public boolean existsById(Long id) ;
+	public boolean existsById(String id) ;
 
 	
 	public Iterable<Comment> findAll() ;
 
 	
-	public Iterable<Comment> findAllById(Iterable<Long> ids);
+	public Iterable<Comment> findAllById(Iterable<String> ids);
 
 	public long count() ;
 
-	public void deleteById(Long id) ;
+	public void deleteById(String id) ;
 
 
 	public void delete(Comment entity) ;

@@ -78,12 +78,12 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public Optional<Admin> findById(Long id) {
+	public Optional<Admin> findById(String id) {
 		return adminRepository.findById(id);
 	}
 
 	@Override
-	public boolean existsById(Long id) {
+	public boolean existsById(String id) {
 		return adminRepository.existsById(id);
 	}
 
@@ -93,7 +93,7 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public Iterable<Admin> findAllById(Iterable<Long> ids) {
+	public Iterable<Admin> findAllById(Iterable<String> ids) {
 		return adminRepository.findAllById(ids);
 	}
 
@@ -103,7 +103,7 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public void deleteById(Long id) {
+	public void deleteById(String id) {
          adminRepository.deleteById(id);		
 	}
 

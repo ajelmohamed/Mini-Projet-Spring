@@ -47,19 +47,19 @@ public <S extends Post> S index(S entity) ;
 	public <S extends Post> Iterable<S> saveAll(Iterable<S> entities);
 
 	
-	public Optional<Post> findById(Long id);
+	public Optional<Post> findById(String id);
 
-	public boolean existsById(Long id) ;
+	public boolean existsById(String id) ;
 
 	
 	public Iterable<Post> findAll() ;
 
 	
-	public Iterable<Post> findAllById(Iterable<Long> ids);
+	public Iterable<Post> findAllById(Iterable<String> ids);
 
 	public long count() ;
 
-	public void deleteById(Long id) ;
+	public void deleteById(String id) ;
 
 
 	public void delete(Post entity) ;

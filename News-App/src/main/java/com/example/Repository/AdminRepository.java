@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import com.example.Model.Admin;
 @Repository
-public interface AdminRepository extends ElasticsearchRepository<Admin, Long> {
+public interface AdminRepository extends ElasticsearchRepository<Admin, String> {
 
 }

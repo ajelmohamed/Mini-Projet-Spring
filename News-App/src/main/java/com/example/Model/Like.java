@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 public class Like {
 
 	@Id
-	private Long idLike;
+	private String idLike;
 	@ManyToOne
 	private User user;
 	

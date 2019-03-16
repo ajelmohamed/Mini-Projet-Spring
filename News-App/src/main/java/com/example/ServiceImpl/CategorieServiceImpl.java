@@ -79,12 +79,12 @@ public class CategorieServiceImpl implements CategorieService{
 	}
 
 	@Override
-	public Optional<Categorie> findById(Long id) {
+	public Optional<Categorie> findById(String id) {
 		return categorieRepository.findById(id);
 	}
 
 	@Override
-	public boolean existsById(Long id) {
+	public boolean existsById(String id) {
 		return categorieRepository.existsById(id);
 	}
 
@@ -94,7 +94,7 @@ public class CategorieServiceImpl implements CategorieService{
 	}
 
 	@Override
-	public Iterable<Categorie> findAllById(Iterable<Long> ids) {
+	public Iterable<Categorie> findAllById(Iterable<String> ids) {
 		return categorieRepository.findAllById(ids);
 	}
 
@@ -104,7 +104,7 @@ public class CategorieServiceImpl implements CategorieService{
 	}
 
 	@Override
-	public void deleteById(Long id) {
+	public void deleteById(String id) {
          categorieRepository.deleteById(id);		
 	}
 

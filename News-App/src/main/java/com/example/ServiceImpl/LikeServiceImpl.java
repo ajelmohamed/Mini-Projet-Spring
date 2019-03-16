@@ -80,12 +80,12 @@ public class LikeServiceImpl implements LikeService{
 	}
 
 	@Override
-	public Optional<Like> findById(Long id) {
+	public Optional<Like> findById(String id) {
 		return likeRepository.findById(id);
 	}
 
 	@Override
-	public boolean existsById(Long id) {
+	public boolean existsById(String id) {
 		return likeRepository.existsById(id);
 	}
 
@@ -95,7 +95,7 @@ public class LikeServiceImpl implements LikeService{
 	}
 
 	@Override
-	public Iterable<Like> findAllById(Iterable<Long> ids) {
+	public Iterable<Like> findAllById(Iterable<String> ids) {
 		return likeRepository.findAllById(ids);
 	}
 
@@ -105,7 +105,7 @@ public class LikeServiceImpl implements LikeService{
 	}
 
 	@Override
-	public void deleteById(Long id) {
+	public void deleteById(String id) {
          likeRepository.deleteById(id);		
 	}
 

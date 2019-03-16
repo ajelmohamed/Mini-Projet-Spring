@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.example.Model.Post;
 
 @Repository
-public interface PostRepository extends ElasticsearchRepository<Post, Long>{
+public interface PostRepository extends ElasticsearchRepository<Post, String>{
 
 }

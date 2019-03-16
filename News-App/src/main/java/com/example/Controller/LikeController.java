@@ -28,7 +28,7 @@ public class LikeController {
 	 }
 	 
 	 @GetMapping("/findLike/{id}")
-	 public Optional<Like> findLike(@PathVariable("id") Long id)
+	 public Optional<Like> findLike(@PathVariable("id") String id)
 	 {
 		 return likeService.findById(id);
 	 }
@@ -40,7 +40,7 @@ public class LikeController {
 		 return likeService.findAll();
 	 }
 	 @PutMapping("/updateLike/{id}")
-	 public  ResponseEntity<Object> updateLike(@RequestBody Like like ,@PathVariable("id") Long id)
+	 public  ResponseEntity<Object> updateLike(@RequestBody Like like ,@PathVariable("id") String id)
 	 {
 			Optional<Like> likeOptional=likeService.findById(id);
 			if (!likeOptional.isPresent())
@@ -51,7 +51,7 @@ public class LikeController {
 
 	 }
 	 @DeleteMapping("/deleteLike/{id}")
-	 public void deleteLike(@PathVariable("id") Long id)
+	 public void deleteLike(@PathVariable("id") String id)
 	 {
 		 likeService.deleteById(id);
 	 }
