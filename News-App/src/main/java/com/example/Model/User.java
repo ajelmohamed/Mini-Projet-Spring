@@ -13,6 +13,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+
+
 @Document(indexName="user",type="user",shards=2)
 public class User {
 	@Id
