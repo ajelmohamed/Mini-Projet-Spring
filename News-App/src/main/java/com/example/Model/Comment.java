@@ -19,7 +19,7 @@ public class Comment {
 
 	@Id
 	private String idComment;
-	private String ContenuComment;
+	private String contenuComment;
 
 	@ManyToOne()
 	private User user;
