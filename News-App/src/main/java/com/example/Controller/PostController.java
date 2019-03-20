@@ -26,7 +26,7 @@ public class PostController {
 	 
 	 @PostMapping("/savePost")
 	 public void  savePost(@RequestBody Post post)
-	 {
+	 {   System.out.println(post.toString());
 		 postService.save(post);
 	 }
 	 
