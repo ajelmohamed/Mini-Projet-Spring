@@ -11,6 +11,7 @@ import org.springframework.data.elasticsearch.core.query.SearchQuery;
 import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
 import org.springframework.stereotype.Service;
 
+import com.example.Model.Categorie;
 import com.example.Model.Post;
 import com.example.Repository.PostRepository;
 import com.example.Service.PostService;
@@ -122,6 +123,12 @@ public class PostServiceImpl implements PostService {
 	@Override
 	public void deleteAll() {
       		postRepository.deleteAll();
+	}
+
+	@Override
+	public Iterable<Post> findPostCategorie(Categorie categorie) {
+		// TODO Auto-generated method stub
+		return postRepository.findByCategoriePost(categorie);
 	}
 
 }

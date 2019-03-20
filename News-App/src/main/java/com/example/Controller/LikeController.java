@@ -18,7 +18,7 @@ import com.example.Model.Like;
 import com.example.Service.LikeService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200","http://localhost:4300"})
 public class LikeController {
 	@Autowired 
 	 LikeService likeService;

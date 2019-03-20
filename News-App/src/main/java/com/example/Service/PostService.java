@@ -9,6 +9,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.elasticsearch.core.query.SearchQuery;
 import org.springframework.stereotype.Service;
 
+import com.example.Model.Categorie;
 import com.example.Model.Post;
 
 @Service
@@ -53,6 +54,8 @@ public <S extends Post> S index(S entity) ;
 
 	
 	public Iterable<Post> findAll() ;
+	public Iterable<Post> findPostCategorie(Categorie categorie) ;
+
 
 	
 	public Iterable<Post> findAllById(Iterable<String> ids);

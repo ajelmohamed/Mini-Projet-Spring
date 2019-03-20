@@ -20,7 +20,7 @@ import com.example.Service.CategorieService;
 
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200","http://localhost:4300"})
 public class CategorieController {
 	@Autowired 
 	 CategorieService categorieService;

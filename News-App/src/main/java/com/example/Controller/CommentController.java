@@ -17,7 +17,7 @@ import com.example.Model.Comment;
 import com.example.Service.CommentService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200","http://localhost:4300"})
 public class CommentController {
 	@Autowired 
 	 CommentService commentService;
