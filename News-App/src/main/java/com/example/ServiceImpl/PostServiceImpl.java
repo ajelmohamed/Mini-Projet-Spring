@@ -126,9 +126,9 @@ public class PostServiceImpl implements PostService {
 	}
 
 	@Override
-	public Iterable<Post> findPostCategorie(Categorie categorie) {
+	public Iterable<Post> findPostCategorie(String categorie) {
 		// TODO Auto-generated method stub
-		return postRepository.findByCategoriePost(categorie);
+		return postRepository.findByCategoriePost_IdCategorie(categorie);
 	}
 
 }

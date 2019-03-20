@@ -54,8 +54,9 @@ public class PostController {
 
 	 }
 	 
-	 @GetMapping("/findpostParCategorie")
-	 public Iterable<Post> findAllPostParCategorie(@RequestBody Categorie categorie){
+	 @GetMapping("/findpostParCategorie/{id}")
+	 public Iterable<Post> findAllPostParCategorie(@PathVariable("id") String categorie){
+		 System.out.println(categorie.toString());
 		 return postService.findPostCategorie(categorie);
 	 }
 	 

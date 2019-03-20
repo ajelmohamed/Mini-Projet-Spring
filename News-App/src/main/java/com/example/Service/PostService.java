@@ -54,7 +54,7 @@ public <S extends Post> S index(S entity) ;
 
 	
 	public Iterable<Post> findAll() ;
-	public Iterable<Post> findPostCategorie(Categorie categorie) ;
+	public Iterable<Post> findPostCategorie(String categorie) ;
 
 
 	
