@@ -14,11 +14,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.Model.Categorie;
 import com.example.Model.Post;
 import com.example.Service.PostService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200","http://localhost:4300"})
 public class PostController {
 	@Autowired 
 	 PostService postService;
@@ -31,7 +32,7 @@ public class PostController {
 	 
 	 @GetMapping("/findPost/{id}")
 	 public Optional<Post> findPost(@PathVariable("id") String id)
-	 {
+	 {   System.out.println(id);
 		 return postService.findById(id);
 	 }
 	 
@@ -52,6 +53,13 @@ public class PostController {
 			return ResponseEntity.noContent().build();
 
 	 }
+	 
+	 @GetMapping("/findpostParCategorie/{id}")
+	 public Iterable<Post> findAllPostParCategorie(@PathVariable("id") String categorie){
+		 System.out.println(categorie.toString());
+		 return postService.findPostCategorie(categorie);
+	 }
+	 
 	 @DeleteMapping("/deletePost/{id}")
 	 public void deletePost(@PathVariable("id") String id)
 	 {
