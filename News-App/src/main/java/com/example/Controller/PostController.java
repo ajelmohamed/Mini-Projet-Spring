@@ -31,6 +31,10 @@ public class PostController {
 		 postService.save(post);
 	 }
 	 
+	 @GetMapping("/searchPosts/{search}")
+	 public Iterable<Post> searchPosts(@PathVariable("search") String search){
+		 return postService.searchPosts(search);
+	 }
 	 @GetMapping("/findPost/{id}")
 	 public Optional<Post> findPost(@PathVariable("id") String id)
 	 {   System.out.println(id);
