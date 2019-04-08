@@ -3,6 +3,7 @@ package com.example.Controller;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -42,15 +43,15 @@ public class PostController {
 	 {
 		 return postService.findAll();
 	 }
-	 @PutMapping("/updatePost/{id}")
-	 public  ResponseEntity<Object> updatePost(@RequestBody Post post ,@PathVariable("id") String id)
+	 @PutMapping("/updatePost")
+	 public  ResponseEntity<Post> updatePost(@RequestBody Post post )
 	 {
-			Optional<Post> postOptional=postService.findById(id);
+			Optional<Post> postOptional=postService.findById(post.getIdPost());
 			if (!postOptional.isPresent())
 				return  ResponseEntity.notFound().build() ;
-			post.setIdPost(id);
+			post.setIdPost(post.getIdPost());
 			postService.save(post);
-			return ResponseEntity.noContent().build();
+			return new ResponseEntity<Post>(post,HttpStatus.OK);
 
 	 }
 	 
