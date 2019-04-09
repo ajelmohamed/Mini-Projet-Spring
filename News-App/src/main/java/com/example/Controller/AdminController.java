@@ -1,7 +1,12 @@
 package com.example.Controller;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -14,11 +19,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.Model.Admin;
+import com.example.Model.Post;
 import com.example.Model.User;
 import com.example.Service.AdminService;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RestController
 @CrossOrigin(origins = {"http://localhost:4200","http://localhost:4300"})
@@ -35,10 +45,12 @@ public class AdminController {
 	 return adminService.loginAdmin(email,password);
  }
  
- 
- @RequestMapping(value = "/registerAdmin", method = RequestMethod.POST)
- public ResponseEntity<Admin>  registerAdmin(@RequestBody Admin admin)
+ @JsonIgnore
+ @RequestMapping(value = "/registerAdmin", method = RequestMethod.POST, headers = {"content-type=multipart/mixed", "content-type=multipart/form-data"},consumes = {"multipart/form-data"})
+ public ResponseEntity<Admin>  registerAdmin(@RequestPart(required=false,name="image") MultipartFile file,@RequestPart(name="admin")String stradmin) throws IOException
  {
+	 Admin admin = new ObjectMapper().readValue(stradmin, Admin.class);
+	 admin.setAvatarAdmin(file.getBytes());
 	return adminService.registerAdmin(admin);
  }
  
@@ -81,5 +93,22 @@ public class AdminController {
  {
 	 adminService.deleteAll();
  }
- 
+	/*****************************************photo post******************************************/
+	@GetMapping("/photoAdmin/{id}")
+ public  byte[] photoAdmin(@PathVariable("id") String id, HttpServletRequest request) {
+  
+		Optional<Admin> a=adminService.findById(id);
+		
+		Admin a1=a.get();
+		try {
+			if(a1.getAvatarAdmin()==null) {
+				return null;
+				}
+			return IOUtils.toByteArray(new ByteArrayInputStream(a1.getAvatarAdmin()));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 }
