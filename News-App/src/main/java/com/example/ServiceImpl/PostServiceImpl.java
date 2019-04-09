@@ -131,4 +131,10 @@ public class PostServiceImpl implements PostService {
 		return postRepository.findByCategoriePost_IdCategorie(categorie);
 	}
 
+	@Override
+	public Iterable<Post> searchPosts(String message) {
+		// TODO Auto-generated method stub
+		return postRepository.findByCategoriePost_TitleCategorieOrCategoriePost_DescriptionCategorieOrTitlePostOrContenuePostOrAdmin_NomAdminOrAdmin_PrenomAdmin(message);
+	}
+
 }

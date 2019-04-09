@@ -3,6 +3,7 @@ package com.example.Controller;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.Model.Comment;
+import com.example.Model.User;
 import com.example.Service.CommentService;
 
 @RestController
@@ -23,9 +25,9 @@ public class CommentController {
 	 CommentService commentService;
 	 
 	 @PostMapping("/saveComment")
-	 public void  saveComment(@RequestBody Comment comment)
-	 {
-		 commentService.save(comment);
+	 public ResponseEntity<Comment>  saveComment(@RequestBody Comment comment)
+	 {  Comment c=commentService.save(comment);
+		 return new ResponseEntity<Comment>(c, HttpStatus.OK);
 	 }
 	 
 	 @GetMapping("/findComment/{id}")
