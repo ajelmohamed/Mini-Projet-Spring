@@ -161,6 +161,11 @@ public class PostController {
 			}
 			return null;
 		}
-	
+		@GetMapping("/searchPosts/{search}")
+		 public Iterable<Post> searchPosts(@PathVariable("search") String search){
+			 return postService.searchPosts(search);
+		 }
+
+
 
 }
