@@ -10,6 +10,7 @@ import org.springframework.data.annotation.Id;
 
 
 import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,7 +19,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Document(indexName="post",type="post",shards=2)
-public class Post {
+public class Post implements Comparable<Post>{
 	
 	@Id
 	private String idPost;
@@ -39,4 +40,9 @@ public class Post {
 	private List<Like> listLike;
 	@OneToMany
 	private List<Comment> listComment;
+	@Override
+	 public int compareTo(Post emp) {
+	  
+	        return ( emp.listComment.size() - this.listComment.size());
+	 }
 }

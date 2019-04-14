@@ -1,5 +1,10 @@
 package com.example.ServiceImpl;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Optional;
 
 import org.elasticsearch.index.query.QueryBuilder;
@@ -136,5 +141,35 @@ public class PostServiceImpl implements PostService {
 		// TODO Auto-generated method stub
 		return postRepository.findByCategoriePost_TitleCategorieOrCategoriePost_DescriptionCategorieOrTitlePostOrContenuePostOrAdmin_NomAdminOrAdmin_PrenomAdmin(message);
 	}
+
+	@Override
+	public Iterable<Post> findPopularPost() {
+		// TODO Auto-generated method stub
+		Iterable<Post> p=postRepository.findAll();
+		Iterator<Post> i=p.iterator();
+		ArrayList<Post> lp =new ArrayList<Post>();
+		while(i.hasNext()) {
+		lp.add(i.next());
+		}
+		Collections.sort(lp);
+		
+		return lp.subList(0, 4);
+	}
+	
+	@Override
+	public Iterable<Post> findLatestPost() {
+		// TODO Auto-generated method stub
+
+		Iterable<Post> p=postRepository.findAll();
+		Iterator<Post> i=p.iterator();
+		ArrayList<Post> lp =new ArrayList<Post>();
+		while(i.hasNext()) {
+		lp.add(i.next());
+		}
+		
+		return lp.subList(lp.size()-4,lp.size()-1);
+		
+	}
+
 
 }

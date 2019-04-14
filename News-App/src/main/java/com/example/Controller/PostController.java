@@ -90,13 +90,17 @@ public class PostController {
 	 {
 		 return postService.findAll();
 	 }
-	 @PutMapping("/updatePost/{id}")
+	 
+	 @RequestMapping(value = "/updatePost/{id}", method = RequestMethod.PUT)
 	 public  ResponseEntity<Object> updatePost(@RequestBody Post post ,@PathVariable("id") String id)
 	 {
 			Optional<Post> postOptional=postService.findById(id);
 			if (!postOptional.isPresent())
 				return  ResponseEntity.notFound().build() ;
 			post.setIdPost(id);
+			post.setPhotoPost(postOptional.get().getPhotoPost());
+			post.setVideoPost(postOptional.get().getVideoPost());
+
 			postService.save(post);
 			return ResponseEntity.noContent().build();
 
@@ -106,6 +110,16 @@ public class PostController {
 	 public Iterable<Post> findAllPostParCategorie(@PathVariable("id") String categorie){
 		 System.out.println(categorie.toString());
 		 return postService.findPostCategorie(categorie);
+	 }
+	 
+	 @GetMapping("/findPopularPosts")
+	 public Iterable<Post> findPopularPost(){
+		 return postService.findPopularPost();
+	 }
+	 
+	 @GetMapping("/findLatestPosts")
+	 public Iterable<Post> findLatestPost(){
+		 return postService.findLatestPost();
 	 }
 	 
 	 @DeleteMapping("/deletePost/{id}")
@@ -129,7 +143,7 @@ public class PostController {
 		}
 /*****************************************photo post******************************************/
 		@GetMapping("/photoPost/{id}")
-	    public  byte[] photoPersonne(@PathVariable("id") String id, HttpServletRequest request) {
+	    public  byte[] photoPost(@PathVariable("id") String id, HttpServletRequest request) {
 	     
 			Optional<Post> p=postService.findById(id);
 			

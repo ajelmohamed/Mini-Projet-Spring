@@ -35,7 +35,9 @@ public <S extends Post> S index(S entity) ;
 
 
 	public Class<Post> getEntityClass();
-
+	
+	public Iterable<Post> findPopularPost();
+	public Iterable<Post> findLatestPost();
 	
 	public Iterable<Post> findAll(Sort sort) ;
 	
