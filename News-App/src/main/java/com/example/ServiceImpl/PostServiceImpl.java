@@ -16,6 +16,7 @@ import org.springframework.data.elasticsearch.core.query.SearchQuery;
 import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
 import org.springframework.stereotype.Service;
 
+
 import com.example.Model.Categorie;
 import com.example.Model.Post;
 import com.example.Repository.PostRepository;
@@ -136,11 +137,7 @@ public class PostServiceImpl implements PostService {
 		return postRepository.findByCategoriePost_IdCategorie(categorie);
 	}
 
-	@Override
-	public Iterable<Post> searchPosts(String message) {
-		// TODO Auto-generated method stub
-		return postRepository.findByCategoriePost_TitleCategorieOrCategoriePost_DescriptionCategorieOrTitlePostOrContenuePostOrAdmin_NomAdminOrAdmin_PrenomAdmin(message);
-	}
+
 
 	@Override
 	public Iterable<Post> findPopularPost() {

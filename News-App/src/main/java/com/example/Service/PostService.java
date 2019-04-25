@@ -16,7 +16,6 @@ import com.example.Model.Post;
 public interface PostService {
 public <S extends Post> S index(S entity) ;
 	
-    public Iterable<Post> searchPosts(String message);
 
 	public Iterable<Post> search(QueryBuilder query) ;
 	

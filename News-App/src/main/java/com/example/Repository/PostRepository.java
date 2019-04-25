@@ -12,6 +12,4 @@ import com.example.Model.Post;
 @Repository
 public interface PostRepository extends ElasticsearchRepository<Post, String>{
 	Iterable<Post> findByCategoriePost_IdCategorie(String categorie);
-	Iterable<Post> findByCategoriePost_TitleCategorieOrCategoriePost_DescriptionCategorieOrTitlePostOrContenuePostOrAdmin_NomAdminOrAdmin_PrenomAdmin(String message);
-
 }
